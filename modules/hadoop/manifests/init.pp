@@ -1,28 +1,36 @@
-include wget
-
 class hadoop {
- $hadoop_home = "/usr/local"
+ $hadoop_home = "/usr/local/hadoop"
+
+group { "hadoop" :
+  ensure => present,
+  gid => 1000
+}
+
+user { "hadoop":
+  ensure => present,
+  gid => "hadoop",
+  shell => "/bin/bash",
+  managehome => true,
+  require => Group["hadoop"]
+}
 
 exec { "download_hadoop" : 
-  command => "/usr/bin/wget http://mirror.sdunix.com/apache/hadoop/common/hadoop/hadoop-2.2.0.tar.gz",
+  command => "/usr/bin/wget http://mirror.nexcess.net/apache/hadoop/common/hadoop-2.2.0/hadoop-2.2.0.tar.gz",
   cwd => "/tmp",
-  creates => "/tmp/hadoop.tar.gz"
+  require => User["hadoop"]
 }
 
 file {
   "/tmp/hadoop.tar.gz":
-  ensure => present,
   mode => 640,
   owner => hadoop,
   group => hadoop,
-  require => Package["openjdk-6-jdk"]
+  require => Exec["download_hadoop"]
 }
 
 exec { "unpack_hadoop" :
-  command => "tar -zxf /tmp/hadoop.tar.gz -C /usr/local/",
-  path => $path,
-  creates => "${hadoop_home}",
-  require => Exec["download_hadoop"]
+  command => "/bin/tar zxf /tmp/hadoop.tar.gz",
+  cwd => "/usr/local/hadoop"
 }
 
 file {

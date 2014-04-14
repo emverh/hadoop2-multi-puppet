@@ -14,14 +14,12 @@ file { "/home/hadoop/.ssh":
    mode => 600,
 }
 
-
 file {
   "/home/hadoop/.ssh/id_rsa":
   source => "puppet:///modules/rsa/id_rsa",
   mode => 600,
   owner => hadoop,
-  group => hadoop,
-  require => Exec['yum update']
+  group => hadoop
  }
  
 file {
@@ -29,8 +27,7 @@ file {
   source => "puppet:///modules/rsa/id_rsa.pub",
   mode => 600,
   owner => hadoop,
-  group => hadoop,
-  require => Exec['yum update']
+  group => hadoop
  }
 
 ssh_authorized_key { "ssh_key":
