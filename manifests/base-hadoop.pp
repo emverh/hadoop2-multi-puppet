@@ -4,16 +4,16 @@ include hadoop
 group { "puppet":
   ensure => "present",
 }
-  exec { 'apt-get update':
-    command => '/usr/bin/apt-get update',
+  exec { 'yum update':
+    command => '/usr/bin/yum update',
 }
 
-package { "openjdk-6-jdk" :
+package { "java-1.6.0-openjdk-devel"
    ensure => present,
-  require => Exec['apt-get update']
+  require => Exec['yum update']
 }
 
 package { "vim" : 
    ensure => present,
-   require => Exec['apt-get update']
+   require => Exec['yum update']
 }

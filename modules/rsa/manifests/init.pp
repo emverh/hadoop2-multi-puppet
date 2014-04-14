@@ -21,7 +21,7 @@ file {
   mode => 600,
   owner => hadoop,
   group => hadoop,
-  require => Exec['apt-get update']
+  require => Exec['yum update']
  }
  
 file {
@@ -30,7 +30,7 @@ file {
   mode => 600,
   owner => hadoop,
   group => hadoop,
-  require => Exec['apt-get update']
+  require => Exec['yum update']
  }
 
 ssh_authorized_key { "ssh_key":
