@@ -1,14 +1,45 @@
 include rsa
 include hadoop
+include java
 
-group { "puppet":
-  ensure => "present",
+$puppetserver = "hadoop setup"
+
+node "HNName" {
+  file { "/etc/hosts":
+    source => "puppet://modules/hosts/file/master.cfg",
+    owner => root,
+    group => root
+  }
 }
 
-package { "java-1.6.0-openjdk-devel.i686":
-  ensure => present,
+node "HNData1" {
+  file { "/etc/hosts":
+    source => "puppet://modules/hosts/file/data1.cfg",
+    owner => root,
+    group => root
+  }
 }
 
-package { "vim-enhanced" : 
-  ensure => present,
+node "HNData2" {
+  file { "/etc/hosts":
+    source => "puppet://modules/hosts/file/data2.cfg",
+    owner => root,
+    group => root
+  }
+}
+
+node "HNData3" {
+  file { "/etc/hosts":
+    source => "puppet://modules/hosts/file/data3.cfg",
+    owner => root,
+    group => root
+  }
+}
+
+node "HN2ndName" {
+  file { "/etc/hosts":
+    source => "puppet://modules/hosts/file/secondary.cfg",
+    owner => root,
+    group => root
+  }
 }
