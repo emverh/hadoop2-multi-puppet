@@ -23,7 +23,7 @@ exec { "download_hadoop" :
 
 exec { "unpack1_hadoop" :
   command => "/bin/tar zxf /tmp/hadoop-2.2.0.tar.gz -C /usr/local/",
-  creates => "/tmp/hadoop-2.2.0",
+  creates => "/tmp/hadoop-2.2.0.tar.gz",
   require => Exec["download_hadoop"]
 }
 
@@ -31,6 +31,13 @@ exec { "unpack_hadoop" :
   command => "/bin/mv /usr/local/hadoop-2.2.0/ /usr/local/hadoop",
   creates => "/usr/local/hadoop",
   require => Exec["unpack1_hadoop"]
+}
+
+file { "/usr/local/hadoop" :
+  recurse => true,
+  owner => hadoop,
+  group => hadoop,
+  require => Exec["unpack_hadoop"]
 }
 
 file {
