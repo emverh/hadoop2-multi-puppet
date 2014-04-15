@@ -28,14 +28,9 @@ file {
   require => Exec["download_hadoop"]
 }
 
-exec { "unpack1_hadoop" :
-  command => "/bin/tar zxf /tmp/hadoop.tar.gz -C /usr/local/",
-  cwd => "/usr/local/hadoop"
-}
-
 exec { "unpack_hadoop" :
-  command => "/bin/mv /usr/local/hadoop-2.2.0 /usr/local/hadoop",
-  require => Exec["unpack1_hadoop"]
+  command => "/bin/tar zxf /tmp/hadoop.tar.gz",
+  cwd => "/usr/local/hadoop"
 }
 
 file {
