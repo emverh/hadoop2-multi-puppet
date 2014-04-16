@@ -24,7 +24,7 @@ class hadoop {
 
   exec { "unpack_hadoop":
     command => "/bin/tar zxf /tmp/hadoop-2.2.0.tar.gz -C /usr/local/",
-    creates => "/usr/local/hadoop-2.2.0",
+    creates => "/usr/local/hadoop",
     require => Exec["download_hadoop"]
   }
 
