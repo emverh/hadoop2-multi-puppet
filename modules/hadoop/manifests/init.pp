@@ -22,23 +22,23 @@ class hadoop {
     require => User["hadoop"]
   }
 
-  exec { "unpack1_hadoop":
+  exec { "unpack_hadoop":
     command => "/bin/tar zxf /tmp/hadoop-2.2.0.tar.gz -C /usr/local/",
-    creates => "/tmp/hadoop-2.2.0.tar.gz",
+    creates => "/usr/local/hadoop-2.2.0",
     require => Exec["download_hadoop"]
   }
 
-  exec { "unpack_hadoop":
+  exec { "move_hadoop":
     command => "/bin/mv /usr/local/hadoop-2.2.0/ /usr/local/hadoop",
     creates => "/usr/local/hadoop",
-    require => Exec["unpack1_hadoop"]
+    require => Exec["unpack_hadoop"]
   }
 
   file { "/usr/local/hadoop":
     recurse => true,
     owner   => hadoop,
     group   => hadoop,
-    require => Exec["unpack_hadoop"]
+    require => Exec["move_hadoop"]
   }
 
   file { "${hadoop_home}/etc/hadoop/slaves":
@@ -46,7 +46,7 @@ class hadoop {
     mode    => 644,
     owner   => hadoop,
     group   => hadoop,
-    require => Exec["unpack_hadoop"]
+    require => Exec["move_hadoop"]
   }
 
   file { "${hadoop_home}/etc/hadoop/masters":
@@ -54,7 +54,7 @@ class hadoop {
     mode    => 644,
     owner   => hadoop,
     group   => hadoop,
-    require => Exec["unpack_hadoop"]
+    require => Exec["move_hadoop"]
   }
 
   file { "${hadoop_home}/etc/hadoop/core-site.xml":
@@ -62,7 +62,7 @@ class hadoop {
     mode    => 644,
     owner   => hadoop,
     group   => hadoop,
-    require => Exec["unpack_hadoop"]
+    require => Exec["move_hadoop"]
   }
 
   file { "${hadoop_home}/etc/hadoop/mapred-site.xml":
@@ -70,7 +70,7 @@ class hadoop {
     mode    => 644,
     owner   => hadoop,
     group   => hadoop,
-    require => Exec["unpack_hadoop"]
+    require => Exec["move_hadoop"]
   }
 
   file { "${hadoop_home}/etc/hadoop/hdfs-site.xml":
@@ -78,7 +78,7 @@ class hadoop {
     mode    => 644,
     owner   => hadoop,
     group   => hadoop,
-    require => Exec["unpack_hadoop"]
+    require => Exec["move_hadoop"]
   }
   
   file { "${hadoop_home}/etc/hadoop/yarn-site.xml":
@@ -86,7 +86,7 @@ class hadoop {
     mode    => 644,
     owner   => hadoop,
     group   => hadoop,
-    require => Exec["unpack_hadoop"]
+    require => Exec["move_hadoop"]
   }
 
   file { "${hadoop_home}/etc/hadoop/hadoop-env.sh":
@@ -94,7 +94,7 @@ class hadoop {
     mode    => 644,
     owner   => hadoop,
     group   => hadoop,
-    require => Exec["unpack_hadoop"]
+    require => Exec["move_hadoop"]
   }
 
   file { "${hadoop_home}/etc/hadoop/yarn-env.sh":
@@ -102,7 +102,7 @@ class hadoop {
     mode    => 644,
     owner   => hadoop,
     group   => hadoop,
-    require => Exec["unpack_hadoop"]
+    require => Exec["move_hadoop"]
   }
 }
 
