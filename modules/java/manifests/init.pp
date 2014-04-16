@@ -14,7 +14,8 @@ class java {
     ensure => present,
   }
   
-  exec { "set_environmet" : 
-    command => "export JAVA_HOME=${java_home}",
+  file { "/etc/profile.d/java.sh":
+    content => "export JAVA_HOME=${java_home}
+                export PATH=\$PATH:\$JAVA_HOME/bin"
   }
 }
