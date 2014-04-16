@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
   <property>
-    <name>mapred.job.tracker</name>
+    <name>mapreduce.jobtracker.address</name>
     <value>HNName:10002</value>
     <description>The host and port that the MapReduce job tracker runs at.</description>
   </property>

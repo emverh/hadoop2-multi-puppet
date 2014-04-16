@@ -2,12 +2,8 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
   <property>
-    <name>fs.default.name</name>
+    <name>fs.defaultFS</name>
     <value>hdfs://HNName:10001</value>
     <description>The name of the default file system. A URI whose scheme and authority determine the FileSystem implementation.</description>
-  </property>
-  <property>
-    <name>hadoop.tmo.dir</name>
-    <value>/usr/local/hadoop/tmp</value>
   </property>
 </configuration>

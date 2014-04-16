@@ -35,6 +35,10 @@ Vagrant.configure("2") do |config|
   config.vm.define :master do |master_config|
     master_config.vm.network :private_network, ip: "192.168.2.10"
     master_config.vm.hostname = 'HNName.nature.com'
+    master_config.vm.network "forwarded_port", guest: 50070, host: 50070
+    master_config.vm.network "forwarded_port", guest: 50075, host: 50075
+    master_config.vm.network "forwarded_port", guest: 50030, host: 50030
+    master_config.vm.network "forwarded_port", guest: 50060, host: 50060
   end
 
 end
