@@ -8,7 +8,7 @@
 		<name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
 		<value>org.apache.hadoop.mapred.ShuffleHandler</value>
 	</property>
-	<property>
+	<!-- <property>
 		<name>yarn.resourcemanager.resource-tracker.address</name>
 		<value>HNName:8025</value>
 	</property>
@@ -19,5 +19,5 @@
 	<property>
 		<name>yarn.resourcemanager.address</name>
 		<value>HNName:8040</value>
-	</property>
+	</property> -->
 </configuration>

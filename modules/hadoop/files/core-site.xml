@@ -2,7 +2,7 @@
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
 <configuration>
   <property>
-    <name>fs.defaultFS</name>
+    <name>fs.default.name</name>
     <value>hdfs://HNName:10001</value>
     <description>The name of the default file system. A URI whose scheme and authority determine the FileSystem implementation.</description>
   </property>
