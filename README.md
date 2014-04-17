@@ -13,6 +13,7 @@ and you will create a cluster of 4 servers:
 Puppet will setup Hadoop 2.2.0 for you so that you'll have 3 datanodes a namenode and a secondary.
 
 **vagrant ssh master**
+
 **sudo su - hadoop**
 
 and execute:
@@ -21,7 +22,7 @@ and execute:
 
 Once the script is over call: 
 
-_jps
+_jps_
 
 you should see on master:
 
