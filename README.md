@@ -26,18 +26,18 @@ _jps_
 
 you should see on master:
 
-- <pid> Jps
-- <pid> NameNode
+- _pid_ Jps
+- _pid_ NameNode
 
 and on secondary:
 
-- <pid> Jps
-- <pid> SecondaryNameNode
+- _pid_ Jps
+- _pid_ SecondaryNameNode
 
 and on any of hndataX:
 
-- <pid> Jps
-- <pid> DataNode
+- _pid_ Jps
+- _pid_ DataNode
 
 If you edit the /etc/hosts file in your host machine as follows:
 
