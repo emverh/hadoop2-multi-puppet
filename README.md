@@ -39,6 +39,9 @@ and on any of hndataX:
 - _pid_ Jps
 - _pid_ DataNode
 
+**start nodemanager (on hnname)**
+yarn-daemon.sh start nodemanager
+
 If you edit the /etc/hosts file in your host machine as follows:
 
 *hadoop vagrant*
@@ -56,3 +59,27 @@ you should be able to access via browser this urls:
 and see the list of the three datanodes here:
 
 http://HNName:50070/dfsnodelist.jsp?whatNodes=LIVE
+
+**Import data in hdfs**
+hdfs dfs -put /path/to/your/file/file.ext hdfs://hnname:10001/your/directory
+
+**How to kill a job**
+mapred job -list
+mapred job -kill <job_id>
+
+#TO-DO:
+
+**Configuration**
+
+user.name is deprecated. Instead, use mapreduce.job.user.name
+mapred.jar is deprecated. Instead, use mapreduce.job.jar
+mapred.output.value.class is deprecated. Instead, use mapreduce.job.output.value.class
+mapreduce.combine.class is deprecated. Instead, use mapreduce.job.combine.class
+mapreduce.map.class is deprecated. Instead, use mapreduce.job.map.class
+mapred.job.name is deprecated. Instead, use mapreduce.job.name
+mapreduce.reduce.class is deprecated. Instead, use mapreduce.job.reduce.class
+mapred.input.dir is deprecated. Instead, use mapreduce.input.fileinputformat.inputdir
+mapred.output.dir is deprecated. Instead, use mapreduce.output.fileoutputformat.outputdir
+mapred.map.tasks is deprecated. Instead, use mapreduce.job.maps
+mapred.output.key.class is deprecated. Instead, use mapreduce.job.output.key.class
+mapred.working.dir is deprecated. Instead, use mapreduce.job.working.dir

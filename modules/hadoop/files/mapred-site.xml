@@ -46,6 +46,6 @@
 	</property>
 	<property>
 		<name>mapreduce.jobtracker.address</name>
-		<value>jobtracker.HNName:8021</value>
+		<value>HNName:8021</value>
 	</property>
 </configuration>
