@@ -55,4 +55,4 @@ you should be able to access via browser this urls:
 
 and see the list of the three datanodes here:
 
-http://192.168.2.10:50070/dfsnodelist.jsp?whatNodes=LIVE
+http://HNName:50070/dfsnodelist.jsp?whatNodes=LIVE
