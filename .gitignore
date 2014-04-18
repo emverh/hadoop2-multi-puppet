@@ -1,2 +1,4 @@
 .vagrant
 .project
+.idea
+*.iml

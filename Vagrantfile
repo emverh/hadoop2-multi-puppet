@@ -21,16 +21,6 @@ Vagrant.configure("2") do |config|
     hndata2_config.vm.network :private_network, ip: "192.168.2.13"
     hndata2_config.vm.hostname = 'HNData2.nature.com'
   end
-  
-  config.vm.define :hndata3 do |hndata3_config|
-    hndata3_config.vm.network :private_network, ip: "192.168.2.14"
-    hndata3_config.vm.hostname = 'HNData3.nature.com'
-  end
-  
-  config.vm.define :secondary do |secondary|
-    secondary.vm.network :private_network, ip: "192.168.2.11"
-    secondary.vm.hostname = 'HN2ndName.nature.com'
-  end  
 
   config.vm.define :master do |master_config|
     master_config.vm.network :private_network, ip: "192.168.2.10"

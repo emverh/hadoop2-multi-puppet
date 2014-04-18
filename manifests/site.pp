@@ -19,13 +19,4 @@ node 'HNData2' inherits hadoop-node {
   include hosts
 }
 
-node 'HNData3' inherits hadoop-node {
-  $file_name = "data3.cfg"
-  include hosts
-}
-
-node 'HN2ndName' inherits hadoop-node {
-  $file_name = "secondary.cfg"
-  include hosts
-}
 
